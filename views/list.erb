@@ -1,0 +1,5 @@
+<h3><%= @list_to_show.name() %></h3>
+
+<% @tasks.each do |task| %>
+<%= task.description() %>
+<% end %>
