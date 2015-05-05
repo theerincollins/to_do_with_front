@@ -5,11 +5,11 @@
 <% if @lists.any?() %>
 <ul>
   <% @lists.each do |list| %>
-    <li><a href="list/<%=list.id()%>"><%=list.name() %></li>
+    <li><a href="/list/<%=list.id()%>"><%=list.name() %></li>
   <% end %>
 </ul>
 <% else %>
   <p>You're So On it!</p>
 <% end %>
 
-<a href="list/add">Add a list </a>
+<a href="/list/add" role="button" class="btn btn-primary">We Need More Lists</a>

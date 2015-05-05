@@ -1,5 +1,27 @@
-<h3><%= @list_to_show.name() %></h3>
+<h2 style="color: purple"> <%= @list.name() %></h2>
 
-<% @tasks.each do |task| %>
-<%= task.description() %>
+
+<% if @list.get_tasks().any?() %>
+<ul>
+  <% @list.get_tasks().each do |task| %>
+    <li><%= task.description() %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>No Tasks Here</p>
 <% end %>
+
+<form action = "/save/task" method="post">
+
+  <input id="list_id" name="list_id" type="hidden" value="<%= @list.id() %>">
+  <div class="form-group">
+    <label for="task">Enter Task</label>
+    <input type="text" id="task" name="task" class="form-control">
+  </div>
+
+  <div class="container">
+    <a href="/" role="button" class="btn btn-warning">Home</a>
+    <button type = "submit" class="btn btn-success" style="margin-left: 5px">Save Task</button>
+  </div>
+
+</form>
